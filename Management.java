@@ -1,35 +1,52 @@
-package com.google.main;
+﻿import com.gsjk.result.Result;
+import com.gsjk.user.UserInfo;
+import com.gsjk.user.UserServiceImpl;
 
 import java.util.Scanner;
-import com.google.user.User;
-import com.google.user.UserServiceImplement;
 
 /**
- * @author Administrator
- * @date   2019-10-30
+ * @program: usermanagement
+ * @Description: main function
+ * @author: hxr
+ * @date: 2019/12/9 
  */
-
 public class Management {
-
     public static void main(String[] args){
-        int result = 10;
-        System.out.println("please choose the number: 1 login, 2 register, 3 forget password, 4 exit ");
-        Scanner scanner = new Scanner(System.in);
-        int choose = scanner.nextInt();
-        switch (choose){
-            case 1 :
-                UserServiceImplement userServiceImplement = new UserServiceImplement();
-                User user = new User();
-                System.out.println("please input username: ");
-                user.setUsername(scanner.next());
-                System.out.println("please input password:");
-                user.setUserpassword(scanner.next());
-                result = userServiceImplement.login(user);
-                break;
-            default:
-                System.out.println(result);
-                break;
-        }
+        int choose = 5;
+        do{
+            UserServiceImpl userService = new UserServiceImpl();
+            System.out.println("\nPlease choose the options below:");
+            System.out.println("1.login  2.register  3.forget password  4.exit");
+            Scanner scanner = new Scanner(System.in);
+            choose = scanner.nextInt();
+            switch (choose){
+                case 1:
+                    UserInfo userLogin = new UserInfo();
+                    System.out.println("Please enter user name:");
+                    userLogin.setUsername(scanner.next());
+                    System.out.println("Please enter user password:");
+                    userLogin.setPassword(scanner.next());
+                    Result resultLogin = userService.login(userLogin);
+                    System.out.println(resultLogin.getResultmessage());
+                    break;
+                case 2:
+                    UserInfo userRegister = new UserInfo();
+                    System.out.println("Please enter user name:");
+                    userRegister.setUsername(scanner.next());
+                    System.out.println("Please enter user password:");
+                    userRegister.setPassword(scanner.next());
+                    Result resultRegister = userService.register(userRegister);
+                    System.out.println(resultRegister.getResultmessage());
+                    break;
+                case 3:
+                    System.out.println("Please enter user name:");
+                    break;
+                case 4:
+                    choose = 6;
+                    break;
+                default:
+                    System.out.println("incorrect!");
+            }
+        }while(choose < 6);
     }
 }
-

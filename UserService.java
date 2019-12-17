@@ -1,17 +1,29 @@
-package com.google.user;
+﻿package com.gsjk.user;
+
+import com.gsjk.result.Result;
 
 /**
- * @author hxr
- * @date   2019-10-30
+ * @program: usermanagement
+ * @Description: declare user interface
+ * @author: hxr
+ * @date: 2019/12/9
  */
-
-public class UserService {
-
-    public int login(User user) {
-        return 0;
-    }
-
-    public int register(User user) {
-        return 0;
-    }
+public interface UserService {
+    /**
+    * @Description: to login the system
+    * @Param: [userinfo]
+    * @return: com.gsjk.result.Result
+    * @Author: hxr
+    * @Date: 2019/12/9 
+    */ 
+   public Result login(UserInfo userinfo);
+   
+   /**
+   * @Description: to register the new user
+   * @Param: [userInfo]
+   * @return: com.gsjk.result.Result
+   * @Author: hxr
+   * @Date: 2019/12/9 
+   */ 
+   public Result register(UserInfo userInfo);
 }
