@@ -24,7 +24,7 @@ public class Age {
 				System.out.print("hello beautiful angel");
 				break;
 			default:
-			    System.out.print("ples input again");
+			    System.out.print("pless input again");
 		}
 	}
 }
